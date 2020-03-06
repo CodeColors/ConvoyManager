@@ -8,7 +8,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/CodeColors/ConvoyManager">
-    <img src="https://zupimages.net/up/20/10/cnax.png" alt="Logo" width="80" height="80">
+    <img src="https://zupimages.net/up/20/10/cnax.png" alt="Logo" width="250" height="96">
   </a>
 
   <h3 align="center">ConvoyManager</h3>
@@ -16,7 +16,7 @@
   <p align="center">
     An ETS2:MP Convoy Manager
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/CodeColors/ConvoyManager"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     ·

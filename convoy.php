@@ -30,6 +30,7 @@
             <p><b>Convoy type</b>: Private</p>
           <?php }?>
           <p class="lead">
+            
             <a class="btn btn-primary btn-lg" href="convoy_user.php?id=<?php echo $convoy['id']; ?>&action=part" role="button">Participate</a>
             <a class="btn btn-primary btn-lg" href="index.php" role="button">Return to home</a>
           </p>

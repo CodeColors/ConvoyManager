@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 30 oct. 2019 à 15:45
+-- Généré le :  Dim 08 mars 2020 à 16:06
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -36,15 +36,10 @@ CREATE TABLE IF NOT EXISTS `convoy` (
   `origin` varchar(255) NOT NULL,
   `destination` varchar(255) NOT NULL,
   `type` int(1) NOT NULL DEFAULT '1',
+  `pass` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `convoy`
---
-
-INSERT INTO `convoy` (`id`, `name`, `date`, `origin`, `destination`, `type`) VALUES
-(1, 'Convoi inter entreprise LFA', '2019-07-17 06:25:31', 'Paris', 'Palerme', 1);
 
 -- --------------------------------------------------------
 
@@ -59,15 +54,7 @@ CREATE TABLE IF NOT EXISTS `convoy_part` (
   `user_convoy` int(11) NOT NULL,
   `date` timestamp NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `convoy_part`
---
-
-INSERT INTO `convoy_part` (`id`, `name`, `user_convoy`, `date`) VALUES
-(1, 'piaf', 1, '2019-07-04 04:09:18'),
-(2, 'flash', 1, '2019-07-26 09:16:17');
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 

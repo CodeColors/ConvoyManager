@@ -59,7 +59,12 @@
                   <td><?php echo $data['date']; ?></td>
                   <td><?php echo $data['origin']; ?></td>
                   <td><?php echo $data['destination']; ?></td>
-                  <td><?php echo $data['type']; ?></td>
+                  <?php if($data['type'] == "1"){ ?>
+                     <td>Public</td>
+                  <?php }else{ ?>
+                    <td>Private</td>
+                  <?php } ?>
+                 
                   <td><a class="btn btn-primary btn-lg" href="convoy.php?id=<?php echo $data['id']; ?>">View More</a></td>
                 </tr>
               

@@ -106,6 +106,6 @@ Project Link: [https://github.com/CodeColors/ConvoyManager](https://github.com/C
 [issues-shield]: https://img.shields.io/github/issues/CodeColors/ConvoyManager.svg?style=flat-square
 [issues-url]: https://github.com/CodeColors/ConvoyManager/issues
 [license-shield]: https://img.shields.io/github/license/CodeColors/ConvoyManager.svg?style=flat-square
-[license-url]: https://github.com/CodeColors/ConvoyManager/LICENSE
+[license-url]: https://github.com/CodeColors/ConvoyManager/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [product-screenshot]: https://zupimages.net/up/20/10/ze48.png

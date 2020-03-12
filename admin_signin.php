@@ -1,9 +1,9 @@
 <?php
 session_start();
+require('db.php');
 if(!(isset($_SESSION['id']))){
     header('Location: index.php');
 }else{
-$bdd = new PDO('mysql:host=localhost;dbname=convoyManager;charset=utf8', 'root', '');
 if(isset($_POST['logb'])){
     $pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 

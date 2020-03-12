@@ -1,21 +1,21 @@
 <?php
-session_start();
-if(!(isset($_SESSION['id']))){
-        header('Location: index.php');
-}
-$bdd = new PDO('mysql:host=localhost;dbname=convoyManager;charset=utf8', 'root', '');
+  session_start();
+  require('db.php');
+  if(!(isset($_SESSION['id']))){
+          header('Location: index.php');
+  }
 
-if(isset($_POST['submit'])){
-    $setLinks = $bdd->prepare("UPDATE links SET trucksbook = :truck, discord = :discord WHERE id = 1");
-    $setLinks->execute(array(
-        'truck' => $_POST['trucksbook'],
-        'discord' => $_POST['discord']
-    ));
-    unset($_POST['submit']);
-}
+  if(isset($_POST['submit'])){
+      $setLinks = $bdd->prepare("UPDATE links SET trucksbook = :truck, discord = :discord WHERE id = 1");
+      $setLinks->execute(array(
+          'truck' => $_POST['trucksbook'],
+          'discord' => $_POST['discord']
+      ));
+      unset($_POST['submit']);
+  }
 
-$req = $bdd->query("SELECT * FROM links");
-$links = $req->fetch();
+  $req = $bdd->query("SELECT * FROM links");
+  $links = $req->fetch();
 
 ?>
 <html>

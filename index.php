@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $bdd = new PDO('mysql:host=localhost;dbname=convoyManager;charset=utf8', 'root', '');
+    require('db.php');
 
     $req = $bdd->query("SELECT * FROM links");
     $links = $req->fetch(); 

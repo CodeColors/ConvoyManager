@@ -1,11 +1,11 @@
 <?php 
     session_start();
+    require('db.php');
     if(isset($_SESSION['id'])){
         header('Location: index.php');
     }
 
     if(isset($_POST['signin'])){
-        $bdd = new PDO('mysql:host=localhost;dbname=convoyManager;charset=utf8', 'root', '');
         
         $search = $bdd->prepare('SELECT id, user, pass FROM users WHERE user = :user');
         $search->execute(array(

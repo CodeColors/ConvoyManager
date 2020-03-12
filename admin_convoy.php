@@ -1,8 +1,34 @@
 <?php
-session_start();
-if(!(isset($_SESSION['id']))){
-        header('Location: index.php');
-}
+  session_start();
+  require('db.php');
+  if(!(isset($_SESSION['id']))){
+          header('Location: index.php');
+  }
+
+  if($_GET['type'] == "add"){
+    if(isset($_POST['add'])){
+      if(isset($_POST['password'])){
+        $req = $bdd->prepare('INSERT INTO convoy (name, date, origin, destination, pass) VALUES (:name, :date, :origin, :destination, :pass)');
+        $req->execute(array(
+          'name' => $_POST['convoy_name'],
+          'date' => $_POST['date'],
+          'origin' => $_POST['origin'],
+          'destination' => $_POST['destination'],
+          'pass' => $_POST['password']
+        ));
+      }else{
+        $req = $bdd->prepare('INSERT INTO convoy (name, date, origin, destination) VALUES (:name, :date, :origin, :destination)');
+        $req->execute(array(
+          'name' => $_POST['convoy_name'],
+          'date' => $_POST['date'],
+          'origin' => $_POST['origin'],
+          'destination' => $_POST['destination']
+        ));
+      }
+      
+    }
+  }
+
 ?>
 <html>
     <head>
@@ -19,11 +45,11 @@ if(!(isset($_SESSION['id']))){
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="admin_signin.php">Account</a>
+              </li> 
+              <li class="nav-item">
+                <h3>Admin Page</h3>
               </li>
               <li class="nav-item">
-              <li class="nav-item">
-                    <h3>Admin Page</h3>
-              </li>
                 <a class="nav-link active" href="#">Convoy</a>
               </li>
               </li>
@@ -34,6 +60,32 @@ if(!(isset($_SESSION['id']))){
               </li>
             </ul>
         </header>
+        <?php if (!(isset($_GET['type']))){ ?>
+          <h1>Liste des convois</h1>
+          <a class="btn btn-primary" href="admin_convoy.php?type=add">Add</a>
+        <?php }elseif ($_GET['type'] == "add") { ?>
+          <div class="container">
+            <h1>Add a convoy</h1>
+            <form method="post" class="form-signin">
+              <label for="convoy_name">Convoy's name:</label>
+              <input type="text" class="form-control" name="convoy_name" id="convoy_name" required/>
+              <label for="date">Date:</label>
+              <input type="date" class="form-control" name="date" id="date" required/>
+              <label for="origin">Origin:</label>
+              <input type="text" class="form-control" name="origin" id="origin" required/>
+              <label for="destination">Destination:</label>
+              <input type="text" class="form-control" name="destination" id="destination" required/>
+              <label for="password">Password: (if blank => public convoy)</label>
+              <input type="text" class="form-control" name="password" id="password"/>
+              <input type="submit" class="btn btn-lg btn-primary btn-block" name="add" value="Submit" />
+            </form>
+          </div>
+        <?php }elseif ($_GET['type'] == "modify"){ ?>
+
+        <?php }else{ 
+          echo "Erreur d'affichage de page, veuillez reessayer";
+        } ?>
+        
 
     </body>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

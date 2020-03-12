@@ -1,10 +1,10 @@
 <?php
     session_start();
+    require('db.php');
     if(!(isset($_GET['id'])) OR !(isset($_GET['action']))){
         header('Location: index.php');
     }
 
-    $bdd = new PDO('mysql:host=localhost;dbname=convoyManager;charset=utf8', 'root', '');
     $search = $bdd->query("SELECT * FROM convoy WHERE id=".$_GET['id']);
     $convoy = $search->fetch();
     
